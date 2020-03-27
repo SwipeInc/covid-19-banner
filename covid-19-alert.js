@@ -31,7 +31,7 @@
 
   var bannerHTMLIcon = `<div class="e-icon">${iconSVG}</div>`;
 
-  var bannerHTMLText = `<div class="e-text"><a href="https://sacoronavirus.co.za/" target="_blank">Click here for data free information : COVID-19 Corona Virus South African Resource Portal</a></div>`;
+  var bannerHTMLText = `<div class="e-text"><a href="https://sacoronavirus.co.za/" target="_blank">For more information on the COVID-19 Pandemic in South Africa, click here. Data free.</a></div>`;
 
   var bannerHTMLClose = `<div class="e-close" onclick="closeBanner()">${closeSVG}</div>`;
 
