@@ -9,6 +9,7 @@
   background-color: #fc5355;
   transform: translateY(-100%);
   transition: transform ease 1s;
+  z-index: 99999999999;
 }
 
 .b-covid-alert.m-active {
