@@ -1,10 +1,11 @@
-var $body = document.body;
-var $banner = document.createElement("div");
-var $styles = document.createElement("style");
+(function() {
+  var $body = document.body;
+  var $banner = document.createElement("div");
+  var $styles = document.createElement("style");
 
-var stylesCSS = `.b-covid-alert{position:absolute;top:0;left:0;right:0;width:100%;display:flex;justify-items:stretch;background-color:#fc5355;transform:translateY(-100%);transition:transform ease 1s;z-index: 99999999999}.b-covid-alert.m-active{transform:translateY(0)}.b-covid-alert .e-icon{background-color:#fc6666;padding:10px;display:flex;align-items:center}.b-covid-alert .e-text{flex-grow:1;padding:10px 20px;display:flex;align-items:center}.b-covid-alert .e-text a{color:#fff;font-size:14px}.b-covid-alert .e-close{display:flex;align-items:center;padding:10px 15px;cursor:pointer}`;
+  var stylesCSS = `.b-covid-alert{position:absolute;top:0;left:0;right:0;width:100%;display:flex;justify-items:stretch;background-color:#fc5355;transform:translateY(-100%);transition:transform ease 1s;z-index: 99999999999}.b-covid-alert.m-active{transform:translateY(0)}.b-covid-alert .e-icon{background-color:#fc6666;padding:10px;display:flex;align-items:center}.b-covid-alert .e-text{flex-grow:1;padding:10px 20px;display:flex;align-items:center}.b-covid-alert .e-text a{color:#fff;font-size:14px}.b-covid-alert .e-close{display:flex;align-items:center;padding:10px 15px;cursor:pointer}`;
 
-var iconSVG = `<?xml version="1.0" encoding="UTF-8"?>
+  var iconSVG = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="28px" height="24px" viewBox="0 0 28 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
     <title>warning</title>
@@ -16,7 +17,7 @@ var iconSVG = `<?xml version="1.0" encoding="UTF-8"?>
     </g>
 </svg>`;
 
-var closeSVG = `<?xml version="1.0" encoding="UTF-8"?>
+  var closeSVG = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
     <title>close</title>
@@ -28,23 +29,24 @@ var closeSVG = `<?xml version="1.0" encoding="UTF-8"?>
     </g>
 </svg>`;
 
-var bannerHTMLIcon = `<div class="e-icon">${iconSVG}</div>`;
+  var bannerHTMLIcon = `<div class="e-icon">${iconSVG}</div>`;
 
-var bannerHTMLText = `<div class="e-text"><a href="https://sacoronavirus.co.za/" target="_blank">Click here for data free information : COVID-19 Corona Virus South African Resource Portal</a></div>`;
+  var bannerHTMLText = `<div class="e-text"><a href="https://sacoronavirus.co.za/" target="_blank">Click here for data free information : COVID-19 Corona Virus South African Resource Portal</a></div>`;
 
-var bannerHTMLClose = `<div class="e-close" onclick="closeBanner()">${closeSVG}</div>`;
+  var bannerHTMLClose = `<div class="e-close" onclick="closeBanner()">${closeSVG}</div>`;
 
-$banner.classList.add("b-covid-alert");
-$banner.innerHTML = bannerHTMLIcon + bannerHTMLText + bannerHTMLClose;
-$styles.innerHTML = stylesCSS;
+  $banner.classList.add("b-covid-alert");
+  $banner.innerHTML = bannerHTMLIcon + bannerHTMLText + bannerHTMLClose;
+  $styles.innerHTML = stylesCSS;
 
-$body.insertBefore($styles, $body.firstChild);
-$body.insertBefore($banner, $body.firstChild);
+  $body.insertBefore($styles, $body.firstChild);
+  $body.insertBefore($banner, $body.firstChild);
 
-function closeBanner() {
-  document.querySelector(".b-covid-alert").classList.remove("m-active");
-}
+  function closeBanner() {
+    document.querySelector(".b-covid-alert").classList.remove("m-active");
+  }
 
-setTimeout(function() {
-  document.querySelector(".b-covid-alert").classList.add("m-active");
-}, 2000);
+  setTimeout(function() {
+    document.querySelector(".b-covid-alert").classList.add("m-active");
+  }, 2000);
+})();
