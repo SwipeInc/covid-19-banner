@@ -42,11 +42,11 @@
   $body.insertBefore($styles, $body.firstChild);
   $body.insertBefore($banner, $body.firstChild);
 
-  function closeBanner() {
-    document.querySelector(".b-covid-alert").classList.remove("m-active");
-  }
-
   setTimeout(function() {
     document.querySelector(".b-covid-alert").classList.add("m-active");
   }, 2000);
 })();
+
+function closeBanner() {
+  document.querySelector(".b-covid-alert").classList.remove("m-active");
+}
