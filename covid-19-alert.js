@@ -12,10 +12,13 @@ function dismissBanner() {
 }
 
 function bannerDismissed() {
-  var scriptSrc = document.getElementById("swipe-covid-banner").src;
-  var params = scriptSrc.split("?");
-  if (noQueryString(params)) {
-    return false;
+  var bannerScript = document.getElementById("swipe-covid-banner");
+  if (bannerScript) {
+    var scriptSrc = document.getElementById("swipe-covid-banner").src;
+    var params = scriptSrc.split("?");
+    if (noQueryString(params)) {
+      return false;
+    }
   }
   return window.localStorage.getItem("swipe-covid-dismissed");
 }
