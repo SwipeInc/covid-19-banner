@@ -31,8 +31,8 @@ function getQueryString() {
     if (noQueryString(params)) {
       return false;
     }
+    return params[1];
   }
-  return params[1];
 }
 
 function noQueryString(params) {
