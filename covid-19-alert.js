@@ -14,7 +14,7 @@ function dismissBanner() {
 function bannerDismissed() {
   var bannerScript = document.getElementById("swipe-covid-banner");
   if (bannerScript) {
-    var scriptSrc = document.getElementById("swipe-covid-banner").src;
+    var scriptSrc = bannerScript.src;
     var params = scriptSrc.split("?");
     if (noQueryString(params)) {
       return false;
@@ -24,10 +24,13 @@ function bannerDismissed() {
 }
 
 function getQueryString() {
-  var scriptSrc = document.getElementById("swipe-covid-banner").src;
-  var params = scriptSrc.split("?");
-  if (noQueryString(params)) {
-    return false;
+  var bannerScript = document.getElementById("swipe-covid-banner");
+  if (bannerScript) {
+    var scriptSrc = bannerScript.src;
+    var params = scriptSrc.split("?");
+    if (noQueryString(params)) {
+      return false;
+    }
   }
   return params[1];
 }
