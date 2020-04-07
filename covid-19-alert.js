@@ -1,48 +1,13 @@
 function closeBanner() {
-  switch (getQueryString()) {
-    case "permanent":
-      dismissBanner();
-      break;
-  }
+  window.sessionStorage.setItem("swipe-covid-dismissed", true);
   document.querySelector(".b-covid-alert").classList.remove("m-active");
 }
 
-function dismissBanner() {
-  window.localStorage.setItem("swipe-covid-dismissed", true);
+function isDismissed() {
+  return window.sessionStorage.getItem("swipe-covid-dismissed");
 }
 
-function bannerDismissed() {
-  var bannerScript = document.getElementById("swipe-covid-banner");
-  if (bannerScript) {
-    var scriptSrc = bannerScript.src;
-    var params = scriptSrc.split("?");
-    if (noQueryString(params)) {
-      return false;
-    }
-  }
-  return window.localStorage.getItem("swipe-covid-dismissed");
-}
-
-function getQueryString() {
-  var bannerScript = document.getElementById("swipe-covid-banner");
-  if (bannerScript) {
-    var scriptSrc = bannerScript.src;
-    var params = scriptSrc.split("?");
-    if (noQueryString(params)) {
-      return false;
-    }
-    return params[1];
-  }
-}
-
-function noQueryString(params) {
-  if (typeof params[1] === "undefined") {
-    return true;
-  }
-  return false;
-}
-
-(function() {
+(function () {
   var $body = document.body;
   var $banner = document.createElement("div");
   var $styles = document.createElement("style");
@@ -53,7 +18,6 @@ function noQueryString(params) {
 
   var url = "https://sacoronavirus.co.za/";
   if (detectMob()) {
-    console.log(detectMob());
     url = "https://coronavirus.datafree.co/";
   }
 
@@ -98,8 +62,8 @@ function noQueryString(params) {
   $body.insertBefore($styles, $body.firstChild);
   $body.insertBefore($banner, $body.firstChild);
 
-  if (!bannerDismissed()) {
-    setTimeout(function() {
+  if (!isDismissed()) {
+    setTimeout(function () {
       document.querySelector(".b-covid-alert").classList.add("m-active");
     }, 2000);
   }
